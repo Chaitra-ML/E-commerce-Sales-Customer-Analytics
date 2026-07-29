@@ -23,21 +23,18 @@ This project analyzes ~1 million transactions to answer real business questions:
 
 ```
 ├── README.md
+├── 01_monthly_revenue_trend.png
+├── 02_top_products_revenue_clean.png
+├── 03_top_products_volume_clean.png
+├── 04_top_countries_revenue.png
+├── 05_top_countries_revenue_no_uk.png
+├── 07_rfm_segments.png
+├── 08_cohort_retention.png
+├── 09_revenue_forecast.png
+├── 10_product_efficiency.png
+├── 11_churn_rate.png
 ├── notebook/
 │   └── ecommerce_analytics.ipynb       # Full analysis notebook
-├── data/
-│   └── online_retail_II.xlsx           # Raw source data (or link to UCI page)
-├── charts/
-│   ├── 01_monthly_revenue_trend.png
-│   ├── 02_top_products_revenue_clean.png
-│   ├── 03_top_products_volume_clean.png
-│   ├── 04_top_countries_revenue.png
-│   ├── 05_top_countries_revenue_no_uk.png
-│   ├── 07_rfm_segments.png
-│   ├── 08_cohort_retention.png
-│   ├── 09_revenue_forecast.png
-│   ├── 10_product_efficiency.png
-│   └── 11_churn_rate.png
 └── Ecommerce_Analytics_Project_Report.pdf   # Full write-up (for interviews)
 ```
 
@@ -61,15 +58,15 @@ Raw data: 1,067,371 rows across two sheets (2009-2010, 2010-2011). Issues found 
 
 ## 2. Sales performance
 
-![Monthly revenue trend](charts/01_monthly_revenue_trend.png)
+![Monthly revenue trend](01_monthly_revenue_trend.png)
 
 Revenue peaks every November ahead of the Christmas period, then drops into Q1. (The apparent Dec 2011 crash is a data artifact — the dataset only covers transactions through Dec 9th, not the full month.)
 
-![Top products by revenue](charts/02_top_products_revenue_clean.png)
+![Top products by revenue](02_top_products_revenue_clean.png)
 
 **REGENCY CAKESTAND 3 TIER** is the top revenue product (£344K). Non-product entries ("Manual", postage charges) were identified and excluded from this ranking to avoid misleading results.
 
-![Top countries by revenue excluding UK](charts/05_top_countries_revenue_no_uk.png)
+![Top countries by revenue excluding UK](05_top_countries_revenue_no_uk.png)
 
 The business is heavily UK-dependent. Among international markets, **EIRE (Ireland)** leads, followed by Netherlands and Germany.
 
@@ -79,7 +76,7 @@ The business is heavily UK-dependent. Among international markets, **EIRE (Irela
 
 Customers were scored on **Recency, Frequency, and Monetary** value (quintile-based scoring) and grouped into 7 segments.
 
-![RFM segments](charts/07_rfm_segments.png)
+![RFM segments](07_rfm_segments.png)
 
 | Segment | Customers | Revenue | % of Revenue |
 |---|---|---|---|
@@ -99,11 +96,11 @@ Repeat purchase rate: **72.4%** of customers placed more than one order.
 
 ## 4. Cohort retention & churn
 
-![Cohort retention heatmap](charts/08_cohort_retention.png)
+![Cohort retention heatmap](08_cohort_retention.png)
 
 Most cohorts show a sharp drop-off immediately after their first purchase month, but customers who return for a second purchase tend to stay moderately active for a year or more.
 
-![Churn rate](charts/11_churn_rate.png)
+![Churn rate](11_churn_rate.png)
 
 Using a 180-day inactivity threshold: **40.8% of customers have churned**, 59.2% remain active.
 
@@ -113,7 +110,7 @@ Using a 180-day inactivity threshold: **40.8% of customers have churned**, 59.2%
 
 > **Note:** This dataset only includes selling price, not cost — so a true profit margin analysis isn't possible. Revenue-per-unit is used instead as the closest available proxy for product value.
 
-![Product efficiency](charts/10_product_efficiency.png)
+![Product efficiency](10_product_efficiency.png)
 
 Furniture/decor items (e.g. Vintage Post Office Cabinet) earn the most revenue per unit sold, distinct from the highest-*volume* sellers identified earlier.
 
@@ -121,7 +118,7 @@ Furniture/decor items (e.g. Vintage Post Office Cabinet) earn the most revenue p
 
 ## 6. Revenue forecasting
 
-![Revenue forecast](charts/09_revenue_forecast.png)
+![Revenue forecast](09_revenue_forecast.png)
 
 A simple linear regression forecasts ~£1.02M–£1.05M over the next 3 months. **R² = 0.127** — intentionally low, because a straight line can't capture the seasonality already identified in Section 2. A production model would need to explicitly account for seasonal patterns (e.g. SARIMA, Prophet).
 
